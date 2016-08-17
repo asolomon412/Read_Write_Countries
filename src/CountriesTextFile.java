@@ -29,10 +29,10 @@ public class CountriesTextFile {
 			}
 		}
 		// Now append country name to file
-		//File file = filePath.toFile();
-		try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(filename,false)))) {
-			out.println(countryName);//overwrites data in file
-//			out.append(countryName);
+		// File file = filePath.toFile();
+		try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(filename, false)))) {
+			out.println(countryName);// overwrites data in file
+			// out.append(countryName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -43,17 +43,17 @@ public class CountriesTextFile {
 	 */
 	public static ArrayList<String> readListOfCountries(String fileName) {
 		ArrayList<String> returnList = new ArrayList<String>();
-		
+
 		// if file does not exist return null
 		Path filePath = Paths.get(fileName);
 		if (Files.notExists(filePath)) {
 			return null;
 		}
 		try (BufferedReader in = new BufferedReader(new FileReader(fileName))) {
-			while(in.ready()){
-				String line = in.readLine();				
-				returnList.add(line);	
-			}				
+			while (in.ready()) {
+				String line = in.readLine();
+				returnList.add(line);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

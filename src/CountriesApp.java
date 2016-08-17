@@ -25,7 +25,6 @@ public class CountriesApp {
 			switch (choice) {
 			case 1:// Add a country
 
-			
 				System.out.print("Enter country name:");
 				String countryName = scan.next();
 				System.out.println();// newline
