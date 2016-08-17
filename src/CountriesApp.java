@@ -13,33 +13,35 @@ public class CountriesApp {
 		// This class contains the user interface (UI) for displaying
 		// menus
 		System.out.println("Welcome to the Countries Maintenance Application");
-		boolean running = true;
-		while (running) {
-			System.out.println("1-See the list of countries\n2-Add a country\n3-Exit");
+		boolean cont = true;
+		while (cont) {
+			System.out.println("1-Add a country\n2-See a list of the added countries\n3-Exit");
+			System.out.println("\n***You must add a country first!***\n");
 			System.out.print("Enter menu number:");
 
 			int choice = scan.nextInt();
 			System.out.println();// newline
 			// scan.next();//consume
 			switch (choice) {
-			case 1:// list countries
-				countryList = CountriesTextFile.readListOfCountries(fileName);
-				if (countryList == null) {
-					System.out.println("List is empty. Select option 2 first to add items to the list.\n");
-				} else {
-					displayOutput(countryList);
-				}
-				break;
+			case 1:// Add a country
 
-			case 2:// Add a country
+			
 				System.out.print("Enter country name:");
 				String countryName = scan.next();
 				System.out.println();// newline
 				CountriesTextFile.writeToCountriesList(fileName, countryName);
 				break;
+			case 2:// List a country
+				countryList = CountriesTextFile.readListOfCountries(fileName);
+				if (countryList == null) {
+					System.out.println("List is empty. Select option 1 first to add items to the list.\n");
+				} else {
+					displayOutput(countryList);
+				}
+				break;
 
 			case 3:// exit
-				running = false;
+				cont = false;
 				break;
 
 			default:
